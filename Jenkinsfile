@@ -3,7 +3,11 @@ node {
      stage('code clone') {
         git 'https://github.com/nagnani/ks.git'
     } 
-    
+
+      stage('mvn version') {
+         sh 'mvn --version'
+    }
+
       stage('code clean') {
          sh 'mvn clean'
     }
