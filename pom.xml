@@ -44,5 +44,10 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+  <distributionManagement>
+    <snapshotRepository>
+      <id>deployment</id>
+      <url>http://44.200.35.255:8081/repository/nag/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
