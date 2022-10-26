@@ -47,7 +47,7 @@
   <distributionManagement>
     <snapshotRepository>
       <id>deployment</id>
-      <url>http://44.200.35.255:8081/repository/nag/</url>
+      <url>http://3.234.177.78:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
