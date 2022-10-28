@@ -22,7 +22,8 @@ pipeline {
 
         stage('sonar scan') {
          steps{ 
-            sh 'mvn sonar:sonar -Dsonar.projectKey=demotoken -Dsonar.host.url=http://18.215.118.45:9000 Dsonar.login=f5764043688d48ad7745ff496257e0f4d241dbe7'
+            withSonarQubeEnv('sonarqube-8.9')
+                sh "mvn sonar:sonar"
 
             }
         }
