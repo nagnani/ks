@@ -1,10 +1,8 @@
 pipeline {
   agent any
-   tools {
+    tools {
         maven 'Maven 3.8.6'
     }
-
-
     stages {
         stage('git clone'){
             steps{
@@ -21,15 +19,12 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-
         stage('sonar scan') {
          steps{ 
-            withSonarQubeEnv('sonarqube-8.9')
-                sh "mvn sonar:sonar"
-            }
+     sh 'mvn sonar:sonar -Dsonar.projectKey=demotoken -Dsonar.host.url=http://18.215.118.45:9000 -Dsonar.login=f5764043688d48ad7745ff496257e0f4d241dbe7'
+           }
         }
-
-	   stage('maven validate') {
+	  stage('maven validate') {
             steps{
                 sh 'mvn validate'
             }
