@@ -1,8 +1,10 @@
 pipeline {
   agent any
-    tools {
-        maven 'Maven 3.8.6'
+    environment {
+         PATH="$PATH:/opt/maven"
     }
+
+
     stages {
         stage('git clone'){
             steps{
@@ -23,11 +25,11 @@ pipeline {
         stage('sonar scan') {
          steps{ 
             withSonarQubeEnv('sonarqube-8.9')
-                sh 'mvn sonar:sonar'
-
+                sh "mvn sonar:sonar"
             }
         }
-		  stage('maven validate') {
+
+	   stage('maven validate') {
             steps{
                 sh 'mvn validate'
             }
